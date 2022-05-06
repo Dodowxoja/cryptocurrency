@@ -1,16 +1,18 @@
+import 'package:cryptocurrency/core/constants/text_const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({Key? key}) : super(key: key);
 
+  final Color color1 = const Color(0xFF4766F9);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF4766F9),
+      backgroundColor: color1,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const SizedBox(height: 51),
           SizedBox(
             height: 462,
             child: Stack(
@@ -19,47 +21,67 @@ class StartPage extends StatelessWidget {
                   left: -30,
                   child: CircleAvatar(
                     radius: 231,
-                    backgroundColor: const Color(0xFFFFFFFF).withOpacity(0.1),
+                    backgroundColor: Colors.white.withOpacity(0.1),
                   ),
                 ),
                 Center(
                   child: CircleAvatar(
                     radius: 186,
-                    backgroundColor: const Color(0xFFFFFFFF).withOpacity(0.11),
+                    backgroundColor: Colors.white.withOpacity(0.11),
                   ),
                 ),
                 Center(
                   child: CircleAvatar(
                     radius: 141,
-                    backgroundColor: const Color(0xFFFFFFFF).withOpacity(0.12),
-                    backgroundImage: AssetImage('assets/images/Image.png'),
+                    backgroundColor: Colors.white.withOpacity(0.12),
+                    backgroundImage:
+                        const AssetImage('assets/images/Image.png'),
                   ),
                 ),
               ],
             ),
           ),
-          // CircleAvatar(
-          //   radius: 800,
-          //   backgroundColor: const Color(0xFFFFFFFF).withOpacity(0.2),
-          // ),
-          // Center(
-          //   child: CircleAvatar(
-          //     radius: 180,
-          //     backgroundColor: const Color(0xFFFFFFFF).withOpacity(0.3),
-          //   ),
-          // ),
-          // Center(
-          //   child: CircleAvatar(
-          //     radius: 140.685,
-          //     backgroundColor: const Color(0xFFFFFFFF).withOpacity(0.5),
-          //     child: Center(
-          //       child: SvgPicture.asset('assets/images/image.svg'),
-          //     ),
-          //   ),
-          // ),
-
-          const SizedBox(height: 24),
-          const Text("data")
+          Padding(
+            padding: const EdgeInsets.all(25),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  TextConst.startPageText1,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  TextConst.startPageText2,
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(0.70),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                InkWell(
+                  child: CircleAvatar(
+                    radius: 29,
+                    backgroundColor: Colors.white,
+                    child: Icon(
+                      Icons.arrow_forward_rounded,
+                      color: color1,
+                      size: 32,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/home');
+                  },
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
